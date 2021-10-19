@@ -1,3 +1,20 @@
-a{
+.link-style{
     text-decoration: none;
+    color:black;
+    background-color: burlywood;
+    margin-left: 10px;
+    padding: 5px;
+    border-radius: 5px;
+}
+.link-style:hover{
+    text-decoration: none;
+    color:burlywood;
+    background-color:  black ;
+    margin-left: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    
+}
+.banner-img{
+    height: 400px;
 }
