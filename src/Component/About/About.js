@@ -3,9 +3,9 @@ import React from 'react';
 const About = () => {
     return (
         <div>
-            <h1>About us</h1>
+            <h2 className="text-center">About us</h2>
             <div className="text-center py-3 px-5 mx-5">
-                <h2>We are SA General Hospital</h2>
+                <h3>We are SA General Hospital</h3>
                 <p className="py-3">
                 Popular Medical College Hospital is a 500+ beds care hospital and the leading contributor of private healthcare services in Bangladesh. This has been achieved only through consistent commitment to improving the lives of people through utmost service excellence since its inception on 2009. Popular Medical College Hospital is one of the ventures of Popular Group which is the top Medical business group of the country.
                 </p>

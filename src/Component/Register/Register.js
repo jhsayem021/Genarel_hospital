@@ -1,87 +1,27 @@
 
-import { getAuth, createUserWithEmailAndPassword ,signInWithEmailAndPassword,sendEmailVerification } from "firebase/auth";
-import {useState} from 'react';
 import React from 'react';
 import hospitalFirebaseAuth from '../../Firebase/Firebase.initialize';
+import useAuth from "../Hooks/useAuth";
 
 hospitalFirebaseAuth();
 
 const Register = () => {
 
-  
-    const [email,setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [error,setError] = useState('');
-    const [islogin, setIslogin] = useState(false);
-    const auth = getAuth();
+ const {user, error,islogin,
+  handleEmailChange, handleNameChange ,handlePasswordChange,
+  handleRegistration,logOut,toggoleLogin } = useAuth();
 
-    const handleEmailChange = (e)=>{
-        setEmail(e.target.value)
-        console.log(e.target.value)
-    }
-    const handlePasswordChange = (e) => {
-      setPassword(e.target.value)
-        console.log(e.target.value)
-    }
-
-    const handleRegistration = e =>{
-      e.preventDefault();
-      if(password.length<6){
-        setError('Please must be atleast 6 charecters long');
-        return;
-      }
-     islogin? processLogin() : createNewUser(email,password)
-        console.log('registration');
-        
-    }
-
-    const verifyEmail = () =>{
-      sendEmailVerification(auth.currentUser)
-      .then(() => {
-        // Email verification sent!
-        // ...
-      });
-    }
-
-    const processLogin = (email,password) => {
-      signInWithEmailAndPassword(auth,email,password)
-      .then(result => {
-        const user = result.user;
-        console.log(user);
-        setError('');
-
-      })
-      .catch((error) => {
-        setError(error.message)
-         // ..
-       });
-
-    }
-
-    const createNewUser = (email,password) => {
-      createUserWithEmailAndPassword(auth,email,password)
-      .then((result) => {
-        // Signed in 
-        const user = result.user;
-        console.log(user);
-        setError('');
-        verifyEmail();
-        // ...
-      })
-      .catch((error) => {
-       setError(error.message)
-        // ..
-      });
-    }
-    const toggoleLogin = (e) => {
-      setIslogin(e.target.checked );
-      console.log(e.target.checked);
-    }
 
     return (
-        <div className="container-fluid w-75">
-            <h1 className="mb-5">Please {islogin?'Login' : 'Register'}</h1>
+        <div>
+          <h1>{user.displayName}</h1>
+          <div className="container-fluid w-75">
+            <h3 className="mb-5">Please {islogin?'Login' : 'Register'}</h3>
             <form onSubmit={handleRegistration} >
+        {!islogin && <div className="mb-3 ">
+    <label htmlFor="exampleInputEmail1" className="form-label">Name</label>
+    <input onBlur={handleNameChange} type="Name" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required/>
+  </div>}
   <div className="mb-3 ">
     <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
     <input onBlur={handleEmailChange} type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required/>
@@ -99,7 +39,10 @@ const Register = () => {
     <p>{error}</p>
   </div>
   <button type="submit" className="btn btn-primary">{islogin?'Login' : 'Submit'}</button>
+  {user?.email &&<button onClick={logOut} type="submit" className="btn btn-primary">Logout</button>}
+
 </form>
+        </div>
         </div>
     );
 };
