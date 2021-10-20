@@ -73,7 +73,7 @@ const Home = () => {
                 <div className="w-25">
                     <h3>Welcome to SA General Hospital</h3>
                 </div>
-                <div className="w-25"><p>he most prestigious concern of SA group, the SA General Hospital started its journey in the year 2010 and by the grace of Almighty Allah it is now able to boast about a sound infrastructure and an enviable faculty. The dedicated workforce with their committed adherence to quality and uncompromising perfection has been the root of this success.</p></div>
+                <div className="w-25"><p>The most prestigious concern of SA group, the SA General Hospital started its journey in the year 2010 and by the grace of Almighty Allah it is now able to boast about a sound infrastructure and an enviable faculty. The dedicated workforce with their committed adherence to quality and uncompromising perfection has been the root of this success.</p></div>
             </div>
                 <div className="d-flex justify-content-evenly ">
                     <h1 className="p-5 m-2 bg-info  rounded-3 w-25">Indoor Service</h1>
