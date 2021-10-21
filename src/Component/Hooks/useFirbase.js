@@ -1,5 +1,4 @@
-import {React} from 'react';
-import { getAuth, createUserWithEmailAndPassword ,signInWithEmailAndPassword,sendEmailVerification, updateProfile ,signOut ,onAuthStateChanged } from "firebase/auth";
+import { getAuth,GoogleAuthProvider,signInWithPopup, createUserWithEmailAndPassword ,signInWithEmailAndPassword,sendEmailVerification, updateProfile ,signOut ,onAuthStateChanged } from "firebase/auth";
 import {useEffect, useState} from 'react';
 import hospitalFirebaseAuth from '../../Firebase/Firebase.initialize';
 
@@ -13,6 +12,24 @@ const useFirebase = () =>{
     const [error,setError] = useState('');
     const [islogin, setIslogin] = useState(false);
     const auth = getAuth();
+    const googleProvider = new GoogleAuthProvider();
+
+    // google Sign in
+
+    const handleGoogleSign = () =>{
+      signInWithPopup(auth, googleProvider)
+      .then((result) => {
+        
+        setUser(result.user);
+        setError('');
+        // ...
+      }).catch((error) => {
+        // Handle Errors here.
+        
+        setError(error.message);
+       
+      });
+    }
 
     useEffect(()=>{
       onAuthStateChanged(auth,user=>{
@@ -110,8 +127,7 @@ const useFirebase = () =>{
     return{
         name,email,user,password,auth, error,islogin,
         handleEmailChange, handleNameChange ,handlePasswordChange,
-        handleRegistration,logOut,toggoleLogin
-
+        handleRegistration,logOut,toggoleLogin,handleGoogleSign
     }
 
 }

@@ -15,7 +15,7 @@ h3{
   pointer-events: none;
 }
 .app-background{
-  background-image: linear-gradient(rgb(167, 211, 138),rgb(94, 144, 184));
+  background-image: linear-gradient(rgb(120, 131, 123),rgb(186, 168, 189));
 }
 
 @media (prefers-reduced-motion: no-preference) {

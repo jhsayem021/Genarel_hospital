@@ -4,7 +4,7 @@ const allserviceComponent = (props) => {
   const {imge,title,description} = props.service;
   return (
     <div>
-                   <div className="col m-4">
+      <div className="col m-4">
     <div className="card p-2">
       
       <img src={imge} className="card-img-top card-img " alt="..."/>
@@ -12,7 +12,7 @@ const allserviceComponent = (props) => {
       <div className="card-body">
         <h5 className="card-title">{title}</h5>
         <p className="card-text">{description}</p>
-        <button  >View Details</button>
+        <button className="btn btn-primary">View Details</button>
       </div>
     </div>
         </div>

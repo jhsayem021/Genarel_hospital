@@ -3,7 +3,7 @@ import React from 'react';
 const Contact = () => {
     return (
         <div>
-            <h2 className="text-center">Contact us</h2>
+            <h2 className="text-center ">Contact us</h2>
             <div className="d-lg-flex ">
             <div className="w-50  p-3 m-lg-5 ">
                 <form action="">

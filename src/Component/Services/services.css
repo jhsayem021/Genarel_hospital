@@ -1,8 +1,17 @@
 .card-img{
 height: 400px;
 }
-button{
+.view-button{
     background-color: burlywood;
-    padding: 5px;
+    padding: 5px 10px;
     border-radius: 5px;
+    text-decoration: none;
+    color: black;
+}
+.view-button:hover{
+    background-color: black;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: burlywood; 
 }

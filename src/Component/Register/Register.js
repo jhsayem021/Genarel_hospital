@@ -9,7 +9,7 @@ const Register = () => {
 
  const {user, error,islogin,
   handleEmailChange, handleNameChange ,handlePasswordChange,
-  handleRegistration,logOut,toggoleLogin } = useAuth();
+  handleRegistration,toggoleLogin, handleGoogleSign } = useAuth();
 
 
     return (
@@ -38,8 +38,8 @@ const Register = () => {
   <div className="text-danger mb-3 row" >
     <p>{error}</p>
   </div>
-  <button type="submit" className="btn btn-primary">{islogin?'Login' : 'Submit'}</button>
-  {user?.email &&<button onClick={logOut} type="submit" className="btn btn-primary">Logout</button>}
+  <button type="submit" className="btn btn-primary">{islogin?'Login' : 'Submit'}</button> <button className="btn btn-primary ms-3" onClick={handleGoogleSign} >Sign in with google</button>
+  
 
 </form>
         </div>
