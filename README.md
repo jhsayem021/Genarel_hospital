@@ -10,6 +10,6 @@ https://health-care-5d739.web.app/
 
 ### People must be register in the website for know our all services 
 
-### People can contact with us by fillup the send message from
+### People can contact with us by fillup the send message form
 
 
