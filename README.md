@@ -1,6 +1,6 @@
 # SA General Hospital website link
 
-https://health-care-5d739.web.app/
+https://sa-general-hospital.web.app/
 
 ## SA General Hospital
 
